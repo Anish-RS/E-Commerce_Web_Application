@@ -15,16 +15,16 @@ pipeline{
         }
         stage('install depandies'){
             steps{
-                dir('E-Commerce_Web_Application/Cart'){
+                dir('Cart'){
                     sh 'npm install'
                 }
-                dir('E-Commerce_Web_Application/Product'){
+                dir('Product'){
                     sh 'npm install'
                 }
-                dir('E-Commerce_Web_Application/User'){
+                dir('User'){
                     sh 'npm install'
                 }
-                dir('E-Commerce_Web_Application/front-end'){
+                dir('front-end'){
                     sh 'npm install'
                 }
             }
