@@ -31,11 +31,12 @@ pipeline{
         }
 
         stage('SonarQube analysis') {
-        steps {
-            script {
-                def scannerHome = tool 'sonarqube'; // must match the name of an actual scanner installation directory on your Jenkins build agent
-                 withSonarQubeEnv('mysonaqube') { 
-                    sh "${scannerHome}/bin/sonar-scanner"
+            steps {
+                script {
+                    def scannerHome = tool 'sonarqube'; // must match the name of an actual scanner installation directory on your Jenkins build agent
+                     withSonarQubeEnv('mysonaqube') { 
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
                 }
             }
         }
@@ -44,7 +45,7 @@ pipeline{
             steps {
               timeout(time: 1, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true
-                  }
+                  
                 }
             }
         }
